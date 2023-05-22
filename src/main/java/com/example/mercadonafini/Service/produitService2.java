@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
- @Service
+@Service
 public class produitService2 {
 
     @Autowired
     private ProduitRepository produitRepository;
+
 
 
      public List<ProduitModel> findByKeyword(String keyword){
@@ -21,5 +23,6 @@ public class produitService2 {
      public List<ProduitModel> findByKW(String kw){
          return produitRepository.findByKW(kw);
      }
+
 
 }

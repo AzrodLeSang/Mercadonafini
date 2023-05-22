@@ -75,6 +75,7 @@
         <tbody>
 
         <tr th:each = "produit : ${produits}" th:field="${produit}">
+
             <td th:text = "${produit.libelle}"></td>
             <td th:text = "${produit.description}"></td>
             <td th:text = "${produit.prix * (1 - produit.reduction / 100 )}" th:if="*{produit.reduction > 0}" class="text-danger gras"></td>

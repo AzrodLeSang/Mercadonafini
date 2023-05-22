@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Past;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Arrays;
 import java.util.Date;
 
 @Entity
@@ -114,4 +115,6 @@ public class ProduitModel {
     public void setDate_fin(Date  date_fin) {
         this.date_fin = date_fin;
     }
+
+
 }

@@ -18,6 +18,10 @@ public class UsersController {
     @Autowired
     private UsersService usersService;
 
+    public UsersController(UsersService usersService){
+        this.usersService = usersService;
+    }
+
 
 
     @GetMapping(value = "/")
@@ -33,10 +37,11 @@ public class UsersController {
 
 
     @PostMapping("/login")
-    public String login(@ModelAttribute UserModel userModel){
+    public String login(@ModelAttribute UserModel userModel, Model model){
         System.out.println("login request : " + userModel);
         UserModel authenticated = usersService.authenticate(userModel.getUsername(), userModel.getPassword());
         if(authenticated != null){
+            model.addAttribute("userLogin", authenticated.getUsername());
             return "index_admin";
         }else{
             return "403";

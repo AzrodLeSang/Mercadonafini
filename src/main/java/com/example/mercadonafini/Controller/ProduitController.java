@@ -1,23 +1,19 @@
 package com.example.mercadonafini.Controller;
 
+
 import com.example.mercadonafini.Service.ProduitService;
+
 import com.example.mercadonafini.model.ProduitModel;
 import com.example.mercadonafini.Service.produitService2;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
+
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Controller
 public class ProduitController {
@@ -27,6 +23,8 @@ public class ProduitController {
 
     @Autowired
     private produitService2 proservice2;
+
+
 
     public ProduitController(ProduitService produitService) {
         this.produitService = produitService;
@@ -56,12 +54,6 @@ public class ProduitController {
         }
         return "produits";
     }
-
-
-
-
-
-
 
 
 
@@ -108,5 +100,6 @@ public class ProduitController {
     produitService.deleteProduitById(id);
     return "redirect:/catalogue/admins";
     }
+
 
 }
