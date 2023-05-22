@@ -40,7 +40,7 @@
 					</span>
 					<div th:if="${param.error}" class="alert alert-error">Mot de passe ou nom d'utilisateur invalide</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" id="login" name="login" placeholder="Votre login" required>
+						<input class="input100" type="text" id="username" name="username" placeholder="Votre nom d'utilisateur" required>
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
@@ -53,37 +53,11 @@
 
 					<div class="container-login100-form-btn">
 						<input class="login100-form-btn" type="submit" name="sign-in" value="Connexion">
-
-
-
 					</div>
 
-					<div class="row">
-						<div class="col-xs-12">
-							<div th:if="${param.error}"
-								 class="alert alert-danger alert-dismissable">
-								<p>
-									<i class="icon fa fa-ban"></i> <span
-										th:text="#{error.login_failed}">Vous avez rentrez des informations erronées </span>
-								</p>
-							</div>
-							<div th:if="${param.logout}"
-								 class="alert alert-info alert-dismissable">
-								<p>
-									<i class="icon fa fa-info"></i> <span
-										th:text="#{info.logout_success}">Vous avez été correctement déconnecté
-											</span>
-								</p>
-							</div>
-							<div th:if="${msg!=null}"
-								 class="alert alert-warning alert-dismissable">
-								<p>
-									<i class="icon fa fa-warning"></i> <span th:text="${msg}"></span>
-								</p>
-							</div>
-						</div>
 
-					</div>
+
+
 
 
 				</form>
