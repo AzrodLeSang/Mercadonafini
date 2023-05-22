@@ -6,7 +6,18 @@ import com.example.mercadonafini.Service.produitService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 public class ProduitController {
@@ -66,6 +77,8 @@ public class ProduitController {
         produitService.saveProduit(produitModel);
         return "redirect:/catalogue/admins";
     }
+
+
 
     @GetMapping("/produits/modifier/{id}")
     public String editProduitForm(@PathVariable Long id, Model model){

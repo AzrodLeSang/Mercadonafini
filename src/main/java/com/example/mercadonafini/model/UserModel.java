@@ -3,6 +3,7 @@ package com.example.mercadonafini.model;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity
@@ -17,16 +18,6 @@ public class UserModel {
     private String username;
     @Column(name = "password")
     private String password;
-
-
-    @ManyToMany(cascade=CascadeType.MERGE)
-    @JoinTable(
-            name="user_role",
-            joinColumns={@JoinColumn(name="user_id", referencedColumnName="user_id")},
-            inverseJoinColumns={@JoinColumn(name="role_id", referencedColumnName="role_id")})
-    private List<RoleModel> roleModel;
-
-
 
 
 
@@ -64,15 +55,24 @@ public class UserModel {
         this.password = password;
     }
 
-
-
-    public List<RoleModel> getRoles()
-    {
-        return roleModel;
-    }
-    public void setRoles(List<RoleModel> roleModel)
-    {
-        this.roleModel = roleModel;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserModel userModel = (UserModel) o;
+        return Objects.equals(user_id, userModel.user_id) && Objects.equals(username, userModel.username) && Objects.equals(password, userModel.password);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(user_id, username, password);
+    }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "user_id=" + user_id +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

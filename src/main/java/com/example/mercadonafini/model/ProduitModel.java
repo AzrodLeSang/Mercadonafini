@@ -38,7 +38,6 @@ public class ProduitModel {
 
 
 
-
     public ProduitModel (){
 
     }
