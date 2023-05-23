@@ -16,6 +16,8 @@ public interface ProduitRepository  extends JpaRepository<ProduitModel, Long> {
 
     @Query(value = "select * from produits  where categorie like %:kw%", nativeQuery = true)
     List<ProduitModel> findByKW(@Param("kw") String kw);
+
+    public ProduitModel findByCategorie(String categorie);
 }
 
 
